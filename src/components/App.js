@@ -2,8 +2,7 @@ import React, { Component, useState } from "react";
 import '../styles/App.css';
 
 class App extends Component {
-	constructor(props)
-	{
+	constructor(props) {
 		super(props);
 		this.state = {
 			list: [
@@ -38,46 +37,41 @@ class App extends Component {
 			],
 		}
 	};
-    render() {
-    	return(
-    		<div id="main">
-    			{
-    				//Correct the percentage conditional for correct output
-    				this.state.list.map(function (item, index) {
-				   		if(item.percent >= 90)
-				   		{
-				   			return(
-				   				//Conditional statement in the className of below div to give callName="bg-pink"
-				   				//if the percent >= 90 else className = "" 
-				   				<div className = "bg-pink" key = {index}>
-					   				<div className="name">
-					   					 //Write code to display name
-										 {item.name}
-					   				</div>
-					   				<div className="percent">
-					   					 //Write code to display percentage upto 2 decimal places
-										 {item.percent.toFixed(2)}
-					   				</div>
-				   				</div>
-				   				)
-				   		}else if(item.percent > 75 ) {
-							return ( 
-								<div clasName="" key={index}>
-								<div className="name">
-									{item.name}
-								</div>
-								<div className="percent">
-									<item.percnet.toFixed(2)}
+	render() {
+		return (
+			<div id="main">
+				{
+					//Correct the percentage conditional for correct output
+					this.state.list.map(function (item, index) {
+						if (item.percent >= 90) {
+							return (
+								<div className="bg-pink" key={index}>
+									<div className="name">
+										{item.name}
+									</div>
+									<div className="percent">
+										{item.percent.toFixed(2)}
+									</div>
 								</div>
 							)
-					}
-			       })
-			    }
-    		</div>
-    		);
-    }
+						} else if (item.percent > 75) {
+							return (
+								<div className="" key={index}>
+									<div className="name">
+										{item.name}
+									</div>
+									<div className="percent">
+										{item.percent.toFixed(2)}
+									</div>
+								</div>
+							)
+						}
+					})
+				}
+			</div >
+		);
+	}
 }
 
 
 export default App;
-
